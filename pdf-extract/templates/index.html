@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>NLDAI OCR Data Extraction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">NLDAI OCR Data Extraction</h1>
+        <form method="post" action="/" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Upload PDF</label>
+                <input type="file" class="form-control-file" id="file" name="file" required>
+            </div>
+            <div class="form-group">
+                <label for="format">Response Format</label>
+                <select class="form-control" id="format" name="format">
+                    <option value="text">Text</option>
+                    <option value="json">JSON</option>
+                    <option value="xml">XML</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Extract Data</button>
+        </form>
+        {% if result %}
+        <div class="mt-5">
+            <h2>Extracted Data</h2>
+            <pre>{{ result }}</pre>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
